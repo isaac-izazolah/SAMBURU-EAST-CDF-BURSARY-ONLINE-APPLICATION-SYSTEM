@@ -1,0 +1,832 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<title>Samburu East NG-CDF Bursary Online Application System - Documentation</title>
+<style>
+body { font-family: 'Calibri', sans-serif; font-size: 11pt; line-height: 1.6; color: #333; margin: 40px; }
+h1 { font-size: 22pt; color: #006B3F; border-bottom: 3px solid #006B3F; padding-bottom: 8px; page-break-before: always; }
+h1:first-of-type { page-break-before: avoid; }
+h2 { font-size: 16pt; color: #006B3F; margin-top: 24px; border-bottom: 1px solid #ccc; padding-bottom: 4px; }
+h3 { font-size: 13pt; color: #333; margin-top: 18px; }
+h4 { font-size: 11pt; color: #555; margin-top: 14px; }
+table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 10pt; }
+th, td { border: 1px solid #bbb; padding: 6px 10px; text-align: left; }
+th { background-color: #006B3F; color: white; font-weight: bold; }
+tr:nth-child(even) { background-color: #f5f5f5; }
+.cover { text-align: center; padding: 100px 0 60px 0; page-break-after: always; }
+.cover h1 { font-size: 28pt; border: none; color: #006B3F; page-break-before: avoid; }
+.cover h2 { font-size: 18pt; border: none; color: #555; }
+.cover p { font-size: 12pt; color: #777; }
+.toc { page-break-after: always; }
+.toc ul { list-style: none; padding-left: 0; }
+.toc li { padding: 4px 0; border-bottom: 1px dotted #ccc; }
+.toc li a { text-decoration: none; color: #006B3F; }
+code { background: #f0f0f0; padding: 2px 6px; font-family: 'Consolas', monospace; font-size: 9pt; }
+.note { background: #fff3cd; border-left: 4px solid #ffc107; padding: 10px 15px; margin: 12px 0; font-size: 10pt; }
+ul, ol { margin: 8px 0; padding-left: 24px; }
+li { margin: 4px 0; }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover">
+<h1>SAMBURU EAST NG-CDF</h1>
+<h1 style="font-size:20pt; color:#555;">Bursary Online Application System</h1>
+<h2 style="margin-top:30px;">System Documentation</h2>
+<p style="margin-top:60px; font-size:13pt;">National Government Constituency Development Fund</p>
+<p>Samburu East Constituency</p>
+<p style="margin-top:80px;">Version 1.0</p>
+<p>Date: July 2026</p>
+<p style="margin-top:40px; font-size:10pt;">P.O. Box 248-40600, Maralal | Tel: +254-053-22025 | info@samburueastcdf.go.ke</p>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="toc">
+<h1>Table of Contents</h1>
+<ul>
+<li><strong>1.</strong> System Overview</li>
+<li><strong>2.</strong> Technology Stack</li>
+<li><strong>3.</strong> System Architecture</li>
+<li><strong>4.</strong> Database Design</li>
+<li><strong>5.</strong> User Roles and Permissions</li>
+<li><strong>6.</strong> Public-Facing Pages</li>
+<li><strong>7.</strong> Admin Panel</li>
+<li><strong>8.</strong> Application Workflow</li>
+<li><strong>9.</strong> Budget and Allocation System</li>
+<li><strong>10.</strong> File Upload System</li>
+<li><strong>11.</strong> Reports and Export Features</li>
+<li><strong>12.</strong> Security Features</li>
+<li><strong>13.</strong> Configuration and Settings</li>
+<li><strong>14.</strong> API Endpoints</li>
+<li><strong>15.</strong> Deployment and Installation</li>
+</ul>
+</div>
+
+<!-- SECTION 1 -->
+<h1>1. System Overview</h1>
+
+<h2>1.1 Purpose</h2>
+<p>The <strong>Samburu East NG-CDF Bursary Online Application System</strong> is a web-based platform designed to digitize and streamline the bursary application and allocation process for the Samburu East Constituency National Government Constituency Development Fund (NG-CDF). The system replaces manual paper-based processes with an efficient online workflow that serves both applicants and administrators.</p>
+
+<h2>1.2 Objectives</h2>
+<ul>
+<li>Enable students to apply for bursaries online from anywhere</li>
+<li>Reduce paperwork and manual processing time</li>
+<li>Provide transparent tracking of application status</li>
+<li>Automate bursary allocation based on configurable rules</li>
+<li>Generate comprehensive reports for decision-making</li>
+<li>Maintain a secure audit trail of all actions</li>
+</ul>
+
+<h2>1.3 Target Users</h2>
+<ul>
+<li><strong>Applicants:</strong> Students seeking bursary funding from Samburu East NG-CDF</li>
+<li><strong>Administrators:</strong> Staff managing applications, allocations, budgets, and reports</li>
+<li><strong>Super Administrators:</strong> Senior staff with full system access including audit logs</li>
+</ul>
+
+<!-- SECTION 2 -->
+<h1>2. Technology Stack</h1>
+
+<table>
+<tr><th>Component</th><th>Technology</th><th>Version</th></tr>
+<tr><td>Backend Language</td><td>PHP</td><td>7.4+</td></tr>
+<tr><td>Database</td><td>MySQL</td><td>5.7+</td></tr>
+<tr><td>Frontend Framework</td><td>Bootstrap</td><td>5.3.2</td></tr>
+<tr><td>JavaScript Library</td><td>jQuery</td><td>3.7.1</td></tr>
+<tr><td>Data Tables</td><td>DataTables</td><td>1.13.7</td></tr>
+<tr><td>Charts</td><td>Chart.js</td><td>Latest</td></tr>
+<tr><td>Rich Text Editor</td><td>Summernote</td><td>0.8.20</td></tr>
+<tr><td>Alerts/Notifications</td><td>SweetAlert2</td><td>11.x</td></tr>
+<tr><td>Icons</td><td>Font Awesome</td><td>6.5.1</td></tr>
+<tr><td>Icons</td><td>Bootstrap Icons</td><td>1.11.3</td></tr>
+<tr><td>PDF Generation</td><td>pdfmake.js</td><td>0.1.53</td></tr>
+<tr><td>CAPTCHA</td><td>GD Library (PHP)</td><td>Built-in</td></tr>
+<tr><td>Server</td><td>Apache (XAMPP)</td><td>Recommended</td></tr>
+</table>
+
+<!-- SECTION 3 -->
+<h1>3. System Architecture</h1>
+
+<h2>3.1 Directory Structure</h2>
+<table>
+<tr><th>Directory/File</th><th>Purpose</th></tr>
+<tr><td><code>/</code> (root)</td><td>Public-facing pages (index, apply, check_status, about, etc.)</td></tr>
+<tr><td><code>/admin/</code></td><td>Admin panel pages (dashboard, applications, allocations, reports, etc.)</td></tr>
+<tr><td><code>/api/</code></td><td>AJAX API endpoints for dynamic data loading</td></tr>
+<tr><td><code>/config/</code></td><td>Configuration files (database, site settings)</td></tr>
+<tr><td><code>/database/</code></td><td>SQL schema, migrations, and seed scripts</td></tr>
+<tr><td><code>/includes/</code></td><td>Shared PHP includes (header, footer, functions, allocation engine)</td></tr>
+<tr><td><code>/assets/css/</code></td><td>Stylesheets (style.css, admin.css)</td></tr>
+<tr><td><code>/assets/js/</code></td><td>JavaScript files (main.js, admin.js)</td></tr>
+<tr><td><code>/img/</code></td><td>Static images (CDF logo, Court of Arms)</td></tr>
+<tr><td><code>/uploads/</code></td><td>User-uploaded documents (application attachments)</td></tr>
+</table>
+
+<h2>3.2 Request Flow</h2>
+<ol>
+<li>User visits a page (e.g., <code>apply.php</code>)</li>
+<li>PHP includes shared headers (<code>includes/header.php</code>) for consistent layout</li>
+<li>Page-specific PHP logic processes form submissions or queries the database</li>
+<li>Data is rendered in HTML with Bootstrap styling</li>
+<li>JavaScript (main.js, admin.js) handles dynamic interactions</li>
+<li>Shared footers (<code>includes/footer.php</code>) load JS libraries and close HTML</li>
+</ol>
+
+<h2>3.3 Admin Request Flow</h2>
+<ol>
+<li>Admin visits admin page (e.g., <code>admin/applications.php</code>)</li>
+<li><code>admin/header.php</code> checks authentication via <code>requireAdminLogin()</code></li>
+<li>Role-based permissions gate access to specific features</li>
+<li>Page renders with sidebar navigation and topbar</li>
+<li>DataTables provide server-side or client-side data tables with filtering</li>
+<li><code>admin/footer.php</code> loads all JS libraries including Summernote editor</li>
+</ol>
+
+<!-- SECTION 4 -->
+<h1>4. Database Design</h1>
+
+<h2>4.1 Database Name</h2>
+<p><code>samburu_bursary</code></p>
+
+<h2>4.2 Entity Relationship Summary</h2>
+<p>The system uses 14 tables with the following relationships:</p>
+<ul>
+<li><code>wards</code> 1:N <code>applications</code> (one ward has many applications)</li>
+<li><code>applications</code> 1:N <code>allocations</code> (one application can have multiple allocations)</li>
+<li><code>applications</code> 1:N <code>application_tracking</code> (status history)</li>
+<li><code>applications</code> 1:N <code>uploaded_documents</code> (attached files)</li>
+<li><code>administrators</code> 1:N <code>applications</code> (created_by)</li>
+<li><code>administrators</code> 1:N <code>allocations</code> (allocated_by)</li>
+<li><code>administrators</code> 1:N <code>announcements</code> (created_by)</li>
+<li><code>administrators</code> 1:N <code>audit_logs</code> (admin_id)</li>
+<li><code>administrators</code> 1:N <code>login_logs</code> (admin_id)</li>
+<li><code>budgets</code> 1:N <code>allocations</code> (budget_id)</li>
+<li><code>allocation_rules</code> used by <code>allocations</code> engine</li>
+</ul>
+
+<h2>4.3 Table Details</h2>
+
+<h3>4.3.1 wards</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>ward_name</td><td>VARCHAR(100)</td><td>Unique</td></tr>
+</table>
+<p><strong>Seed Data:</strong> 5 wards &mdash; Archers Post, Laisamis, Loosuk, Poro, Waso</p>
+
+<h3>4.3.2 administrators</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>full_name</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>email</td><td>VARCHAR(100)</td><td>UNIQUE</td></tr>
+<tr><td>password</td><td>VARCHAR(255)</td><td>bcrypt hashed</td></tr>
+<tr><td>role</td><td>ENUM</td><td>super_admin, admin, secretary, viewer</td></tr>
+<tr><td>is_active</td><td>TINYINT(1)</td><td>Default 1</td></tr>
+<tr><td>password_reset_token</td><td>VARCHAR(255)</td><td>Nullable</td></tr>
+<tr><td>token_expiry</td><td>DATETIME</td><td>Nullable</td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.3 applications</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>application_number</td><td>VARCHAR(20)</td><td>UNIQUE, format: SECDF2025XXXXXX</td></tr>
+<tr><td>full_name</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>email</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>phone</td><td>VARCHAR(20)</td><td>Optional</td></tr>
+<tr><td>gender</td><td>ENUM</td><td>Male, Female, Other</td></tr>
+<tr><td>date_of_birth</td><td>DATE</td><td></td></tr>
+<tr><td>national_id</td><td>VARCHAR(30)</td><td></td></tr>
+<tr><td>ward_id</td><td>INT FK</td><td>References wards.id</td></tr>
+<tr><td>location</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>institution_name</td><td>VARCHAR(150)</td><td></td></tr>
+<tr><td>institution_type</td><td>ENUM</td><td>Secondary, TVET, College, University</td></tr>
+<tr><td>level</td><td>VARCHAR(50)</td><td>Certificate, Diploma, Degree</td></tr>
+<tr><td>year_of_study</td><td>VARCHAR(20)</td><td></td></tr>
+<tr><td>course_name</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>total_fees</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>fees_paid</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>outstanding_balance</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>amount_requested</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>payment_option</td><td>VARCHAR(50)</td><td>Bank, M-Pesa</td></tr>
+<tr><td>account_name</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>account_number</td><td>VARCHAR(50)</td><td></td></tr>
+<tr><td>bank_name</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>bank_branch</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>special_category</td><td>ENUM</td><td>None, Orphan, Disability</td></tr>
+<tr><td>academic_year</td><td>VARCHAR(10)</td><td></td></tr>
+<tr><td>status</td><td>VARCHAR(30)</td><td>Submitted, Pending Verification, Under Review, Approved, Rejected, Allocated, Paid</td></tr>
+<tr><td>admin_remarks</td><td>TEXT</td><td>Nullable</td></tr>
+<tr><td>is_read</td><td>TINYINT(1)</td><td>Default 0</td></tr>
+<tr><td>created_by</td><td>INT FK</td><td>References administrators.id (nullable)</td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+<tr><td>updated_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.4 allocations</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>application_id</td><td>INT FK</td><td>References applications.id</td></tr>
+<tr><td>budget_id</td><td>INT FK</td><td>References budgets.id</td></tr>
+<tr><td>allocated_amount</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>allocation_date</td><td>DATE</td><td></td></tr>
+<tr><td>allocated_by</td><td>INT FK</td><td>References administrators.id</td></tr>
+<tr><td>review_status</td><td>ENUM</td><td>Pending, Reviewed, Approved, Rejected</td></tr>
+<tr><td>reviewed_by</td><td>INT FK</td><td>Nullable</td></tr>
+<tr><td>review_remarks</td><td>TEXT</td><td>Nullable</td></tr>
+<tr><td>payment_option</td><td>VARCHAR(50)</td><td></td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.5 budgets</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>financial_year</td><td>VARCHAR(20)</td><td></td></tr>
+<tr><td>total_amount</td><td>DECIMAL(12,2)</td><td></td></tr>
+<tr><td>allocated_amount</td><td>DECIMAL(12,2)</td><td>Default 0</td></tr>
+<tr><td>remaining_amount</td><td>DECIMAL(12,2)</td><td>Computed or stored</td></tr>
+<tr><td>is_active</td><td>TINYINT(1)</td><td>Only one active at a time</td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.6 allocation_rules</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>institution_type</td><td>VARCHAR(50)</td><td></td></tr>
+<tr><td>level</td><td>VARCHAR(50)</td><td></td></tr>
+<tr><td>special_category</td><td>VARCHAR(50)</td><td>None, Orphan, Disability</td></tr>
+<tr><td>min_amount</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>max_amount</td><td>DECIMAL(10,2)</td><td></td></tr>
+<tr><td>fixed_amount</td><td>DECIMAL(10,2)</td><td>Nullable; overrides min/max</td></tr>
+<tr><td>priority</td><td>INT</td><td>Higher = processed first</td></tr>
+<tr><td>is_active</td><td>TINYINT(1)</td><td></td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.7 application_tracking</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>application_id</td><td>INT FK</td><td>References applications.id</td></tr>
+<tr><td>old_status</td><td>VARCHAR(30)</td><td></td></tr>
+<tr><td>new_status</td><td>VARCHAR(30)</td><td></td></tr>
+<tr><td>remarks</td><td>TEXT</td><td></td></tr>
+<tr><td>changed_by</td><td>INT FK</td><td>Nullable</td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.8 uploaded_documents</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>application_id</td><td>INT FK</td><td>References applications.id</td></tr>
+<tr><td>document_type</td><td>VARCHAR(50)</td><td></td></tr>
+<tr><td>file_name</td><td>VARCHAR(255)</td><td>Original filename</td></tr>
+<tr><td>file_path</td><td>VARCHAR(255)</td><td>Stored path in /uploads/</td></tr>
+<tr><td>file_size</td><td>INT</td><td>Bytes</td></tr>
+<tr><td>mime_type</td><td>VARCHAR(100)</td><td></td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.9 announcements</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>title</td><td>VARCHAR(200)</td><td></td></tr>
+<tr><td>content</td><td>TEXT</td><td>Rich text (HTML from Summernote)</td></tr>
+<tr><td>announcement_type</td><td>ENUM</td><td>general, application_opening, application_closing, notice</td></tr>
+<tr><td>is_published</td><td>TINYINT(1)</td><td>1=published, 0=draft</td></tr>
+<tr><td>published_date</td><td>DATE</td><td>Nullable</td></tr>
+<tr><td>closing_date</td><td>DATE</td><td>Nullable</td></tr>
+<tr><td>created_by</td><td>INT FK</td><td>References administrators.id</td></tr>
+<tr><td>created_at</td><td>TIMESTAMP</td><td></td></tr>
+</table>
+
+<h3>4.3.10 settings</h3>
+<table>
+<tr><th>Column</th><th>Type</th><th>Notes</th></tr>
+<tr><td>id</td><td>INT AUTO_INCREMENT PK</td><td></td></tr>
+<tr><td>setting_key</td><td>VARCHAR(100)</td><td>UNIQUE</td></tr>
+<tr><td>setting_value</td><td>TEXT</td><td></td></tr>
+<tr><td>setting_group</td><td>VARCHAR(50)</td><td>general, contact, bursary, content, homepage</td></tr>
+</table>
+
+<h3>4.3.11 Other Tables</h3>
+<table>
+<tr><th>Table</th><th>Purpose</th></tr>
+<tr><td>faqs</td><td>Frequently Asked Questions with sort_order</td></tr>
+<tr><td>login_logs</td><td>Admin login attempt history (admin_id, ip_address, success, created_at)</td></tr>
+<tr><td>audit_logs</td><td>Full activity audit trail (admin_id, action, description, ip_address, user_agent, created_at)</td></tr>
+<tr><td>contact_messages</td><td>Contact form submissions with admin reply support</td></tr>
+</table>
+
+<!-- SECTION 5 -->
+<h1>5. User Roles and Permissions</h1>
+
+<h2>5.1 Role Definitions</h2>
+<table>
+<tr><th>Role</th><th>Description</th><th>Access Level</th></tr>
+<tr><td><strong>super_admin</strong></td><td>Full system access including audit logs and user management</td><td>All features</td></tr>
+<tr><td><strong>admin</strong></td><td>Standard administrator with most management capabilities</td><td>Applications, Allocations, Budgets, Rules, Reports, Announcements, Messages, Settings</td></tr>
+<tr><td><strong>secretary</strong></td><td>Limited access for data entry and application management</td><td>Applications only (view, update status)</td></tr>
+<tr><td><strong>viewer</strong></td><td>Read-only access for oversight</td><td>Reports, Announcements, Messages (view only)</td></tr>
+</table>
+
+<h2>5.2 Permission Matrix</h2>
+<table>
+<tr><th>Feature</th><th>super_admin</th><th>admin</th><th>secretary</th><th>viewer</th></tr>
+<tr><td>Dashboard</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>View Applications</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+<tr><td>Delete Applications</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>Manage Allocations</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>Bulk Actions</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>Manage Budgets</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>Allocation Rules</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>View Reports</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td></tr>
+<tr><td>Manage Announcements</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes (view)</td></tr>
+<tr><td>Messages</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes (view)</td></tr>
+<tr><td>Settings</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>User Management</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td>Audit Logs</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+</table>
+
+<h2>5.3 Permission Functions</h2>
+<p>Defined in <code>includes/functions.php</code>:</p>
+<ul>
+<li><code>canManageApplications()</code> &mdash; super_admin, admin, secretary</li>
+<li><code>canManageAllocations()</code> &mdash; super_admin, admin</li>
+<li><code>canManageBudgets()</code> &mdash; super_admin, admin</li>
+<li><code>canViewReports()</code> &mdash; super_admin, admin, viewer</li>
+<li><code>canViewAnnouncements()</code> &mdash; super_admin, admin, viewer</li>
+<li><code>canManageSettings()</code> &mdash; super_admin, admin</li>
+<li><code>canManageUsers()</code> &mdash; super_admin only</li>
+<li><code>isSuperAdmin()</code> &mdash; super_admin only</li>
+<li><code>isSecretary()</code> &mdash; secretary only</li>
+</ul>
+
+<!-- SECTION 6 -->
+<h1>6. Public-Facing Pages</h1>
+
+<h2>6.1 Homepage (index.php)</h2>
+<ul>
+<li>Hero section with call-to-action for bursary applications</li>
+<li>Application period dates (open/close) displayed dynamically from settings</li>
+<li>Feature highlights (Online Application, Track Status, Fast Processing)</li>
+<li>Latest announcements (up to 3)</li>
+<li>Statistics counters (total applications, approved, allocated)</li>
+</ul>
+
+<h2>6.2 Application Form (apply.php)</h2>
+<p>Multi-section form with 4 progressive steps:</p>
+<ol>
+<li><strong>Personal Information:</strong> Full name, email, phone (optional), gender, date of birth, national ID/birth cert, ward selection, location</li>
+<li><strong>Academic Information:</strong> Institution name, type (Secondary/TVET/College/University), level (Certificate/Diploma/Degree), year of study, course name</li>
+<li><strong>Financial Information:</strong> Total fees, fees paid, auto-calculated outstanding balance, amount requested, payment option (Bank/M-Pesa), account details</li>
+<li><strong>Document Upload:</strong> National ID, admission letter, fee statement, previous results, special needs doc, additional doc (PDF/JPG/PNG, max 5MB each)</li>
+</ol>
+<p><strong>Output:</strong> Generates unique application number (format: SECDF2025XXXXXX) and displays acknowledgement slip.</p>
+
+<h2>6.3 Application Status Check (check_status.php)</h2>
+<p>Allows applicants to check status using application number and date of birth. Features:</p>
+<ul>
+<li>Status display with color-coded badges</li>
+<li>Auto-refresh via AJAX every 30 seconds</li>
+<li>Print/download PDF of status details</li>
+</ul>
+
+<h2>6.4 Information Pages</h2>
+<table>
+<tr><th>Page</th><th>Purpose</th><th>Content Source</th></tr>
+<tr><td>about.php</td><td>About Samburu East NG-CDF</td><td>Database setting: about_content</td></tr>
+<tr><td>eligibility.php</td><td>Eligibility criteria</td><td>Database setting: eligibility_content</td></tr>
+<tr><td>documents.php</td><td>Required documents list</td><td>Database setting: required_documents_content</td></tr>
+<tr><td>bursary_info.php</td><td>Application guidelines</td><td>Database setting: bursary_guidelines</td></tr>
+<tr><td>announcements.php</td><td>Public announcements listing</td><td>announcements table</td></tr>
+<tr><td>faq.php</td><td>Frequently asked questions with search</td><td>faqs table</td></tr>
+<tr><td>contact.php</td><td>Contact form and information</td><td>settings table + contact_messages</td></tr>
+</table>
+
+<!-- SECTION 7 -->
+<h1>7. Admin Panel</h1>
+
+<h2>7.1 Dashboard (admin/index.php)</h2>
+<ul>
+<li>Summary stat cards: Total Applications, Pending, Approved, Total Budget</li>
+<li>4 interactive charts:
+    <ul>
+    <li>Application Status Distribution (doughnut chart)</li>
+    <li>Applications by Institution Type (polar area chart)</li>
+    <li>Budget Utilization (doughnut chart with center percentage)</li>
+    <li>Monthly Application Trend (line chart, last 12 months)</li>
+    </ul>
+</li>
+<li>Recent applications quick view</li>
+</ul>
+
+<h2>7.2 Applications Management (admin/applications.php)</h2>
+<ul>
+<li>Server-side paginated DataTable with sorting and search</li>
+<li>Filter by: ward, institution type, level, status, special category, academic year</li>
+<li>Inline status updates</li>
+<li>Delete applications (non-secretary roles)</li>
+<li>Export to: Excel (XLS), PDF (print-ready letterhead), Print view</li>
+<li>Application detail link to full view</li>
+</ul>
+
+<h2>7.3 Application Detail View (admin/application_view.php)</h2>
+<ul>
+<li>Complete applicant information display</li>
+<li>Status tracking timeline (application_tracking history)</li>
+<li>Uploaded document viewer (downloadable)</li>
+<li>Allocation information (if allocated)</li>
+<li>Print/Export PDF with full details</li>
+<li>Remarks and admin notes</li>
+</ul>
+
+<h2>7.4 Allocations Management (admin/allocations.php)</h2>
+<ul>
+<li>DataTable of all allocations with review status</li>
+<li>Filter by ward, institution type, level, review status</li>
+<li>Review workflow: Pending &rarr; Reviewed &rarr; Approved/Rejected</li>
+<li>Inline review with remarks</li>
+<li>Export to Excel, PDF, Print</li>
+</ul>
+
+<h2>7.5 Bulk Actions (admin/bulk_actions.php)</h2>
+<p>Advanced batch processing interface with AJAX-powered operations:</p>
+<ul>
+<li><strong>Step 1:</strong> Select applications with filters</li>
+<li><strong>Step 2:</strong> Choose action (Approve, Allocate, Reject)</li>
+<li><strong>Step 3:</strong> Review and confirm bulk operation</li>
+<li><strong>Step 4:</strong> Execute and view results</li>
+</ul>
+<p>Features include select-all, individual selection, real-time progress, result export.</p>
+
+<h2>7.6 Budget Management (admin/budgets.php)</h2>
+<ul>
+<li>Create/edit budget records per financial year</li>
+<li>Set total budget amount</li>
+<li>Activate/deactivate budgets (only one active at a time)</li>
+<li>Auto-recalculate allocated and remaining amounts</li>
+<li>Budget utilization statistics</li>
+</ul>
+
+<h2>7.7 Allocation Rules (admin/allocation_rules.php)</h2>
+<ul>
+<li>Configure allocation rules per institution type, level, and special category</li>
+<li>Set min/max amounts or fixed amounts</li>
+<li>Priority ordering (higher priority = processed first)</li>
+<li>Enable/disable individual rules</li>
+<li>24 default rules seeded across all combinations</li>
+</ul>
+
+<h2>7.8 Reports and Analytics (admin/reports.php)</h2>
+<ul>
+<li><strong>Application Reports:</strong> Filterable, sortable DataTable with AJAX loading</li>
+<li><strong>Allocation Reports:</strong> Similar DataTable for allocations</li>
+<li>Export: Excel, CSV, PDF for both report types</li>
+<li>Print-ready views with letterhead</li>
+<li>Filter by ward, institution type, level, status, academic year, category</li>
+</ul>
+
+<h2>7.9 Announcements (admin/announcements.php)</h2>
+<ul>
+<li>CRUD for announcements with Summernote rich text editor</li>
+<li>Types: general, application_opening, application_closing, notice</li>
+<li>Publish/unpublish toggle</li>
+<li>Published date and optional closing date</li>
+<li>Public display on homepage and announcements page</li>
+</ul>
+
+<h2>7.10 Messages (admin/messages.php)</h2>
+<ul>
+<li>View contact form submissions</li>
+<li>Reply to messages</li>
+<li>Mark as read/unread</li>
+<li>Unread count badge in sidebar</li>
+</ul>
+
+<h2>7.11 Settings (admin/settings.php)</h2>
+<ul>
+<li><strong>General Settings:</strong> Site name, tagline, description, financial year, application status, open/close dates</li>
+<li><strong>Contact Settings:</strong> Email, phone, address</li>
+<li><strong>Content Management:</strong> About, Eligibility, Required Documents, Guidelines (Summernote editor)</li>
+<li>Logo upload functionality</li>
+</ul>
+
+<h2>7.12 User Management (admin/users.php)</h2>
+<p><strong>Super Admin only.</strong></p>
+<ul>
+<li>Create/edit/delete admin users</li>
+<li>Assign roles (super_admin, admin, secretary, viewer)</li>
+<li>Toggle active/inactive status</li>
+<li>Password management</li>
+</ul>
+
+<h2>7.13 Audit Logs (admin/audit_logs.php)</h2>
+<p><strong>Super Admin only.</strong></p>
+<ul>
+<li>Activity logs: action, description, IP address, user agent, timestamp</li>
+<li>Login logs: login attempts with success/failure status</li>
+<li>Filter and search capabilities</li>
+<li>Clear logs functionality</li>
+</ul>
+
+<!-- SECTION 8 -->
+<h1>8. Application Workflow</h1>
+
+<h2>8.1 Application Status Flow</h2>
+<pre>
+Submitted &rarr; Pending Verification &rarr; Under Review &rarr; Approved &rarr; Allocated &rarr; Paid
+                                                &darr;
+                                            Rejected
+</pre>
+
+<h2>8.2 Workflow Steps</h2>
+<table>
+<tr><th>Step</th><th>Status</th><th>Actor</th><th>Description</th></tr>
+<tr><td>1</td><td>Submitted</td><td>Applicant</td><td>Application submitted via online form</td></tr>
+<tr><td>2</td><td>Pending Verification</td><td>Admin/Secretary</td><td>Documents and information verified</td></tr>
+<tr><td>3</td><td>Under Review</td><td>Admin</td><td>Application under committee review</td></tr>
+<tr><td>4</td><td>Approved</td><td>Admin</td><td>Application approved for allocation</td></tr>
+<tr><td>5</td><td>Rejected</td><td>Admin</td><td>Application not approved (with remarks)</td></tr>
+<tr><td>6</td><td>Allocated</td><td>Admin/Engine</td><td>Bursary amount allocated</td></tr>
+<tr><td>7</td><td>Paid</td><td>Admin</td><td>Funds disbursed to student</td></tr>
+</table>
+
+<h2>8.3 Application Number Generation</h2>
+<p>Format: <code>SECDF{YEAR}{6-DIGIT-SEQUENCE}</code></p>
+<p>Example: SECDF2025000001, SECDF2025000002, etc.</p>
+<p>The sequence resets each financial year.</p>
+
+<h2>8.4 Tracking Timeline</h2>
+<p>Every status change is recorded in the <code>application_tracking</code> table with:</p>
+<ul>
+<li>Previous status</li>
+<li>New status</li>
+<li>Remarks/notes</li>
+<li>Changed by (admin ID)</li>
+<li>Timestamp</li>
+</ul>
+<p>This creates a complete audit trail visible in the application detail view.</p>
+
+<!-- SECTION 9 -->
+<h1>9. Budget and Allocation System</h1>
+
+<h2>9.1 Budget Management</h2>
+<ul>
+<li>Budgets are created per financial year (e.g., 2025/2026)</li>
+<li>Only one budget can be active at a time</li>
+<li>The active budget determines available funds for allocation</li>
+<li>Allocated and remaining amounts are tracked in real-time</li>
+</ul>
+
+<h2>9.2 Allocation Engine (includes/allocation_engine.php)</h2>
+<p>The allocation engine automates bursary distribution:</p>
+<ol>
+<li><strong>Validation:</strong> Checks that an active budget exists with remaining balance</li>
+<li><strong>Query:</strong> Fetches all approved applications not yet allocated</li>
+<li><strong>Rule Matching:</strong> For each application, finds the highest-priority matching rule based on:
+    <ul>
+    <li>Institution type (Secondary/TVET/College/University)</li>
+    <li>Level (Certificate/Diploma/Degree)</li>
+    <li>Special category (None/Orphan/Disability)</li>
+    </ul>
+</li>
+<li><strong>Amount Calculation:</strong>
+    <ul>
+    <li>If rule has <code>fixed_amount</code>: uses that amount</li>
+    <li>Otherwise: generates random amount between <code>min_amount</code> and <code>max_amount</code></li>
+    </ul>
+</li>
+<li><strong>Budget Cap:</strong> Allocation is capped at remaining budget</li>
+<li><strong>Transaction:</strong> All allocations wrapped in a database transaction for data integrity</li>
+</ol>
+
+<h2>9.3 Default Allocation Rules</h2>
+<p>24 rules are seeded covering all combinations of:</p>
+<ul>
+<li>4 institution types: Secondary, TVET, College, University</li>
+<li>3 levels per type (where applicable)</li>
+<li>3 categories: None, Orphan, Disability</li>
+</ul>
+<p>Orphan and Disability categories receive priority (higher priority number) and potentially higher allocation amounts.</p>
+
+<!-- SECTION 10 -->
+<h1>10. File Upload System</h1>
+
+<h2>10.1 Supported File Types</h2>
+<table>
+<tr><th>Extension</th><th>MIME Type</th><th>Description</th></tr>
+<tr><td>.pdf</td><td>application/pdf</td><td>PDF documents</td></tr>
+<tr><td>.jpg/.jpeg</td><td>image/jpeg</td><td>JPEG images</td></tr>
+<tr><td>.png</td><td>image/png</td><td>PNG images</td></tr>
+</table>
+
+<h2>10.2 Upload Constraints</h2>
+<ul>
+<li><strong>Maximum file size:</strong> 5 MB per file</li>
+<li><strong>Storage location:</strong> <code>/uploads/</code> directory</li>
+<li><strong>Naming:</strong> Files renamed with timestamp prefix to prevent conflicts</li>
+</ul>
+
+<h2>10.3 Document Types</h2>
+<ul>
+<li>National ID / Birth Certificate</li>
+<li>Admission Letter</li>
+<li>Fee Statement</li>
+<li>Previous Academic Results</li>
+<li>Special Needs Documentation</li>
+<li>Additional Supporting Documents</li>
+</ul>
+
+<h2>10.4 Validation</h2>
+<ul>
+<li>File extension whitelist check</li>
+<li>MIME type verification</li>
+<li>File size limit enforcement</li>
+<li>All uploads validated server-side (not just client-side)</li>
+</ul>
+
+<!-- SECTION 11 -->
+<h1>11. Reports and Export Features</h1>
+
+<h2>11.1 Export Formats</h2>
+<table>
+<tr><th>Format</th><th>Method</th><th>Features</th></tr>
+<tr><td>Excel (XLS)</td><td>Server-side PHP</td><td>Tab-delimited with letterhead, auto-column width</td></tr>
+<tr><td>CSV</td><td>Server-side PHP</td><td>Comma-separated with proper escaping</td></tr>
+<tr><td>PDF / Print</td><td>Browser print-to-PDF</td><td>Letterhead, formatted table, landscape A4, signature lines</td></tr>
+<tr><td>PDF (DataTables)</td><td>pdfmake.js client-side</td><td>Quick PDF export from DataTable</td></tr>
+</table>
+
+<h2>11.2 Report Types</h2>
+<ul>
+<li><strong>Applications Report:</strong> All applications with filters (ward, type, level, status, category, year)</li>
+<li><strong>Allocation Report:</strong> All allocations with review status and amounts</li>
+<li><strong>Individual Application Report:</strong> Full detail view with documents and tracking timeline</li>
+<li><strong>Budget Report:</strong> Budget utilization overview</li>
+</ul>
+
+<h2>11.3 Print Layout</h2>
+<p>All print/PDF outputs include:</p>
+<ul>
+<li>Official letterhead with CDF logo and Court of Arms</li>
+<li>Organization name and contact details</li>
+<li>Report title and generation timestamp</li>
+<li>Filter information (if filters applied)</li>
+<li>Total record count</li>
+<li>Signature authorization lines</li>
+<li>Landscape A4 orientation</li>
+</ul>
+
+<!-- SECTION 12 -->
+<h1>12. Security Features</h1>
+
+<h2>12.1 Authentication</h2>
+<ul>
+<li>Password hashing using <code>PASSWORD_DEFAULT</code> (bcrypt)</li>
+<li>Session-based authentication for admin users</li>
+<li>CAPTCHA verification on admin login (GD-generated image)</li>
+<li>Password reset via secure token with expiry</li>
+<li>Session timeout and secure session handling</li>
+</ul>
+
+<h2>12.2 Authorization</h2>
+<ul>
+<li>Role-based access control (RBAC) on all admin pages</li>
+<li>Permission checks before feature access</li>
+<li>Super admin-only areas (user management, audit logs)</li>
+</ul>
+
+<h2>12.3 Data Protection</h2>
+<ul>
+<li><strong>CSRF Protection:</strong> All forms include CSRF tokens, verified on submission</li>
+<li><strong>Input Sanitization:</strong> <code>sanitize()</code> function applies <code>htmlspecialchars()</code> + <code>stripslashes()</code> + <code>trim()</code></li>
+<li><strong>SQL Injection Prevention:</strong> PDO prepared statements used throughout</li>
+<li><strong>XSS Prevention:</strong> All user output escaped with <code>htmlspecialchars()</code></li>
+<li><strong>File Upload Security:</strong> Extension whitelist, MIME type validation, size limits</li>
+</ul>
+
+<h2>12.4 Server Security</h2>
+<ul>
+<li><code>.htaccess</code> blocks access to sensitive files (.sql, .md, .log, .env)</li>
+<li>Security headers: X-Content-Type-Options, X-Frame-Options, X-XSS-Protection</li>
+<li>Error logging enabled, display_errors disabled in production</li>
+</ul>
+
+<h2>12.5 Audit Trail</h2>
+<ul>
+<li>All admin actions logged with: admin ID, action, description, IP address, user agent, timestamp</li>
+<li>Login attempts tracked (success/failure)</li>
+<li>Audit logs viewable by super admin only</li>
+</ul>
+
+<!-- SECTION 13 -->
+<h1>13. Configuration and Settings</h1>
+
+<h2>13.1 Configuration Constants (config/config.php)</h2>
+<table>
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td>SITE_URL</td><td>Auto-detected</td><td>Base URL of the application</td></tr>
+<tr><td>SITE_NAME</td><td>Samburu East NG-CDF</td><td>Site display name</td></tr>
+<tr><td>UPLOAD_PATH</td><td>Auto-detected</td><td>Filesystem path for uploads</td></tr>
+<tr><td>UPLOAD_URL</td><td>Auto-detected</td><td>URL path for uploads</td></tr>
+<tr><td>MAX_FILE_SIZE</td><td>5,242,880 (5MB)</td><td>Maximum upload file size</td></tr>
+<tr><td>ALLOWED_EXTENSIONS</td><td>pdf, jpg, jpeg, png</td><td>Permitted file types</td></tr>
+<tr><td>RECORDS_PER_PAGE</td><td>20</td><td>Default pagination</td></tr>
+<tr><td>DATE_FORMAT</td><td>d/m/Y</td><td>Display date format</td></tr>
+<tr><td>DATETIME_FORMAT</td><td>d/m/Y H:i:s</td><td>Display datetime format</td></tr>
+<tr><td>APP_PREFIX</td><td>SECDF</td><td>Application number prefix</td></tr>
+<tr><td>FINANCIAL_YEAR</td><td>YYYY/(YYYY+1)</td><td>Auto-calculated</td></tr>
+<tr><td>LOGO_IMG</td><td>Base64-encoded</td><td>CDF logo for print headers</td></tr>
+<tr><td>COA_IMG</td><td>Base64-encoded</td><td>Court of Arms for print headers</td></tr>
+</table>
+
+<h2>13.2 Database Settings (settings table)</h2>
+<table>
+<tr><th>Key</th><th>Group</th><th>Description</th></tr>
+<tr><td>site_name</td><td>general</td><td>Site name</td></tr>
+<tr><td>site_tagline</td><td>general</td><td>Tagline text</td></tr>
+<tr><td>site_description</td><td>general</td><td>Site description</td></tr>
+<tr><td>contact_email</td><td>contact</td><td>Contact email</td></tr>
+<tr><td>contact_phone</td><td>contact</td><td>Contact phone</td></tr>
+<tr><td>contact_address</td><td>contact</td><td>Physical address</td></tr>
+<tr><td>financial_year</td><td>bursary</td><td>Current financial year</td></tr>
+<tr><td>application_status</td><td>bursary</td><td>Open/Closed</td></tr>
+<tr><td>application_open_date</td><td>bursary</td><td>Application period start</td></tr>
+<tr><td>application_close_date</td><td>bursary</td><td>Application period end</td></tr>
+<tr><td>about_content</td><td>content</td><td>About page HTML</td></tr>
+<tr><td>eligibility_content</td><td>content</td><td>Eligibility page HTML</td></tr>
+<tr><td>required_documents_content</td><td>content</td><td>Documents page HTML</td></tr>
+<tr><td>bursary_guidelines</td><td>content</td><td>Guidelines page HTML</td></tr>
+</table>
+
+<h2>13.3 Timezone</h2>
+<p>System timezone is set to <code>Africa/Nairobi</code> (EAT, UTC+3) in config.php.</p>
+
+<!-- SECTION 14 -->
+<h1>14. API Endpoints</h1>
+
+<table>
+<tr><th>File</th><th>Method</th><th>Purpose</th></tr>
+<tr><td>api/captcha.php</td><td>GET</td><td>Generates CAPTCHA image for login</td></tr>
+<tr><td>api/chart_data.php</td><td>GET</td><td>Returns application status counts (JSON) for dashboard chart</td></tr>
+<tr><td>api/budget_data.php</td><td>GET</td><td>Returns budget allocation data (JSON) for dashboard chart</td></tr>
+<tr><td>api/institution_data.php</td><td>GET</td><td>Returns application counts by institution type (JSON)</td></tr>
+<tr><td>api/trend_data.php</td><td>GET</td><td>Returns monthly application trend data (JSON, last 12 months)</td></tr>
+<tr><td>api/check_status_update.php</td><td>POST</td><td>AJAX polling for application status auto-refresh</td></tr>
+<tr><td>api/alloc_action.php</td><td>POST</td><td>Edit, review, or delete allocations</td></tr>
+<tr><td>api/bulk_action.php</td><td>POST</td><td>Bulk fetch, verify, approve, or reallocate applications</td></tr>
+</table>
+
+<!-- SECTION 15 -->
+<h1>15. Deployment and Installation</h1>
+
+<h2>15.1 Requirements</h2>
+<ul>
+<li>PHP 7.4 or higher</li>
+<li>MySQL 5.7 or higher</li>
+<li>Apache web server (XAMPP recommended for development)</li>
+<li>GD Library PHP extension (for CAPTCHA)</li>
+</ul>
+
+<h2>15.2 Installation Steps</h2>
+<ol>
+<li>Place project files in web server document root (e.g., <code>C:/xampp3/htdocs/PROJECTS/SAMBURU EAST CDF/</code>)</li>
+<li>Create MySQL database named <code>samburu_bursary</code></li>
+<li>Import <code>database/samburu_bursary.sql</code> to create tables and seed data</li>
+<li>Configure database credentials in <code>config/database.php</code></li>
+<li>Ensure <code>/uploads/</code> directory is writable</li>
+<li>Access the public site at the configured URL</li>
+<li>Access admin panel at <code>{URL}/admin/</code></li>
+</ol>
+
+<h2>15.3 Default Admin Credentials</h2>
+<table>
+<tr><th>Email</th><th>Password</th><th>Role</th></tr>
+<tr><td>admin@samburueastcdf.go.ke</td><td>admin123</td><td>super_admin</td></tr>
+</table>
+<div class="note"><strong>Note:</strong> Default passwords should be changed immediately after first login for security.</div>
+
+<h2>15.4 Important Notes</h2>
+<ul>
+<li>Ensure PHP has write permissions to the uploads directory</li>
+<li>Configure PHP <code>upload_max_filesize</code> and <code>post_max_size</code> to at least 5MB</li>
+<li>Set PHP timezone to Africa/Nairobi in php.ini if not set in code</li>
+<li>For production, ensure HTTPS is configured</li>
+<li>Regular database backups are recommended</li>
+</ul>
+
+<hr>
+<p style="text-align:center; color:#888; margin-top:40px;">End of Documentation &mdash; Samburu East NG-CDF Bursary Online Application System v1.0</p>
+
+</body>
+</html>
